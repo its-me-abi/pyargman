@@ -36,15 +36,20 @@ a = ArgManager("java")
 # Add arguments
 a.set_arg("--helo_duplicate", 1)
 a.set_arg("--helo_duplicate", 2)  # Supports duplicate arguments
+a.set_arg("--helo_duplicate", 2 , delete = True)  # if there is already a value 2 then it willbe deleted                             
 a.set_arg("--helo_boolean_value", True)  # Argument without a value
 a.set_arg("script_path_like", True)
 
 # Convert arguments to list and string formats
 print("Converted to CLI list:", a.tolist())
 print("Converted to CLI string:", a.toString())
-```
 
-## License
+responce would looks like
+   converted to cli list  ['java', '--helo_duplicate', '1', '--helo_boolean_value', 'script_path_like']
+   converted to cli string  java --helo_duplicate 1 --helo_boolean_value script_path_like
+#
+```
+### License
 
 This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
 
