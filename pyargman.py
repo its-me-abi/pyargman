@@ -29,6 +29,8 @@ class ArgManager:
             if isinstance(self.args[key],list):
                 if delete:
                     self._delete_last( self.args[key] , val )
+                    if self.args[key] is list:
+                        pass
                     return
                 self.args[key].append(val)
             else:
@@ -45,7 +47,10 @@ class ArgManager:
 
     def get_arg(self, key):
         if key in self.args.keys():
-           return self.args[key]
+            val = self.args[key]
+            if isinstance(val,list) and len(val)==1:
+                return val[0]
+            return val
 
     def toString(self):
         return " ".join(self.tolist())
@@ -71,9 +76,8 @@ if __name__ == "__main__":
 
     #a.set_arg("--helo_duplicate", 2)
     a.set_arg("--helo_duplicate", 1)
-    a.set_arg("--helo_duplicate", 11)
-    a.set_arg("--helo_duplicate", 11, delete=True)
-
+    a.set_arg("--helo_duplicate", 11,delete=True)
+    print ( a.get_arg("--helo_duplicate") )
     a.set_arg("--helo_boolean_value", True) # arguemnt without values
     a.set_arg("script_path_like", True)
     print(" converted to cli list " ,a.tolist())

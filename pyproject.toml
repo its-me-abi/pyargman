@@ -7,7 +7,7 @@ Homepage = "https://github.com/its-me-abi/pyargman"
 
 [project]
 name = "pyargman"
-version = "0.0.3"
+version = "0.0.4"
 description = "A Python module like argumentparser for managing comandline  arguments,"
 authors = [
 	{ name = "keralaboy", email = "keralaboypypi@keralaboy.anonaddy.com" }
