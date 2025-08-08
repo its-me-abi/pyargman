@@ -21,7 +21,8 @@ class ArgManager:
 
     def _delete_last(self,lst , item):
         index = self._last_occurrence_item(lst , item)
-        return lst.pop(index)
+        if index is not None:
+           return lst.pop(index)
 
     def set_arg(self, key, val,delete = False):
         if key in self.args.keys():
